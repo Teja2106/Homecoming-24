@@ -32,7 +32,7 @@ const cities: City[] = [
     { name: 'Vizag', date: new Date('2024-12-28T00:00:00') }
 ]
 
-export default function Main() {
+export default function Desktop() {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [fade, setFade] = useState(true);
     const intervalTime = 3000;
@@ -117,32 +117,32 @@ export default function Main() {
 
     return (
         <div>
-            <nav className="m-md:h-24 m-sm:h-20 m-lg:h-32 flex items-center">
-                <img src={Logo} alt="Logo" className="m-md:w-36 m-sm:w-28 m-lg:w-44 ml-10" loading='lazy' />
+            <nav className="d-md:h-24 d-sm:h-20 d-lg:h-32 flex items-center">
+                <img src={Logo} alt="Logo" className="d-md:w-36 d-sm:w-28 d-lg:w-44 ml-10" loading='lazy' />
             </nav>
 
-            <div className="flex m-md:h-[599px] m-sm:h-[471px] m-lg:h-[791px] justify-around ">
-                <div className="xl:w-[1000px] m-lg:w-[1200px] xl:mx-5">
-                    <img src={carouselImages[currentImageIndex]} alt={`Carousel ${currentImageIndex + 1}`} className={`w-full m-md:h-[550px] m-sm:h-[440px] m-lg:h-[750px] object-cover transition-opacity duration-300 ${fade ? 'opacity-100' : 'opacity-0'} rounded-lg m-5`} loading='lazy' />
+            <div className="flex d-md:h-[599px] d-sm:h-[471px] d-lg:h-[791px] justify-around ">
+                <div className="xl:w-[1000px] d-lg:w-[1200px] xl:mx-5">
+                    <img src={carouselImages[currentImageIndex]} alt={`Carousel ${currentImageIndex + 1}`} className={`w-full d-md:h-[550px] d-sm:h-[440px] d-lg:h-[750px] object-cover transition-opacity duration-300 ${fade ? 'opacity-100' : 'opacity-0'} rounded-lg m-5`} loading='lazy' />
                 </div>
 
-                <div style={{ backgroundColor: currentColor, boxShadow: `0px 0px 3px 2px ${ boxShadowColor }` }} className="m-sm:w-[550px] m-md:h-[550px] m-sm:h-[440px] m-lg:h-[750px] m-lg:w-[750px] rounded-lg m-lg:pl-4 m-sm:pl-2 m-5">
-                    <h1 className='font-SpaceGrotesk pt-5 m-md:text-6xl m-lg:text-8xl m-sm:text-5xl m-md:pl-5 m-sm:pl-3'>{cities[currentCityIndex].name}</h1>
-                    <p className='m-md:pl-5 m-sm:pl-3 m-md:mt-10 m-md:mb-5 m-sm:mt-5 m-lg:mt-14 m-sm:mb-3 m-lg:mb-10 m-md:text-5xl m-sm:text-3xl m-lg:text-7xl font-AlumniSansPinstripe font-bold'>We are doing our best to bring you this website.</p>
-                    <p className='m-md:pl-5 m-sm:pl-3 m-md:text-5xl m-sm:text-3xl m-lg:text-7xl font-AlumniSansPinstripe font-bold'>Till then stay tuned!</p>
+                <div style={{ backgroundColor: currentColor, boxShadow: `0px 0px 3px 2px ${ boxShadowColor }` }} className="d-sm:w-[550px] d-md:h-[550px] d-sm:h-[440px] d-lg:h-[750px] d-lg:w-[750px] rounded-lg d-lg:pl-4 d-sm:pl-2 m-5">
+                    <h1 className='font-SpaceGrotesk pt-5 d-md:text-6xl d-lg:text-8xl d-sm:text-5xl d-md:pl-5 d-sm:pl-3'>{cities[currentCityIndex].name}</h1>
+                    <p className='d-md:pl-5 d-sm:pl-3 d-md:mt-10 d-md:mb-5 d-sm:mt-5 d-lg:mt-14 d-sm:mb-3 d-lg:mb-10 d-md:text-5xl d-sm:text-3xl d-lg:text-7xl font-AlumniSansPinstripe font-bold'>We are doing our best to bring you this website.</p>
+                    <p className='d-md:pl-5 d-sm:pl-3 d-md:text-5xl d-sm:text-3xl d-lg:text-7xl font-AlumniSansPinstripe font-bold'>Till then stay tuned!</p>
                     <br />
-                    <div className='m-sm:pl-3 m-md:pl-5 m-md:mt-7 m-lg:mt-0'>
-                        <p className='font-Tourney'><span className='font-ZenDots text-white m-sm:text-xl m-md:text-2xl m-lg:text-4xl'>{ eventDay }</span><sup className='font-ZenDots text-white pr-1 m-sm:text-lg m-lg:text-2xl'>{ eventDaySuffix }</sup> <span className='m-md:text-5xl m-sm:text-4xl m-lg:text-7xl'>December 2024</span></p>
+                    <div className='d-sm:pl-3 d-md:pl-5 d-md:mt-7 d-lg:mt-0'>
+                        <p className='font-Tourney'><span className='font-ZenDots text-white d-sm:text-xl d-md:text-2xl d-lg:text-4xl'>{ eventDay }</span><sup className='font-ZenDots text-white pr-1 d-sm:text-lg d-lg:text-2xl'>{ eventDaySuffix }</sup> <span className='d-md:text-5xl d-sm:text-4xl d-lg:text-7xl'>December 2024</span></p>
                     </div>
                     <br />
-                    <p className='m-md:pl-5 m-sm:pl-3 m-md:text-5xl m-sm:text-3xl m-lg:mt-3'>
-                        {timeLeft.days > 0 && <p className='font-ZenDots m-sm:text-2xl m-lg:text-4xl'>{timeLeft.days} <span className='text-white font-Tourney m-sm:text-5xl m-lg:text-7xl'>Days</span> to go</p>}
-                        {timeLeft.days === 0 && timeLeft.hours > 0 && <p className='font-ZenDots m-lg:text-4xl m-sm:text-3xl'>{timeLeft.hours} <span className='text-white font-Tourney m-md:text-7xl m-sm:text-5xl'>Hours</span> to go</p>}
-                        {timeLeft.days === 0 && timeLeft.hours === 0 && timeLeft.minutes > 0 && <p className='font-ZenDots m-lg:text-4xl m-sm:text-3xl'>{timeLeft.minutes} <span className='text-white font-Tourney m-md:text-6xl m-sm:text-4xl'>Minutes</span> to go</p>}
-                        {timeLeft.days === 0 && timeLeft.hours === 0 && timeLeft.minutes === 0 && <p className='font-ZenDots m-lg:text-4xl m-sm:text-3xl'>{timeLeft.seconds} <span className='text-white font-Tourney m-md:text-6xl m-sm:text-4xl'>Seconds</span>to go</p>}
+                    <p className='d-md:pl-5 d-sm:pl-3 d-md:text-5xl d-sm:text-3xl d-lg:mt-3'>
+                        {timeLeft.days > 0 && <p className='font-ZenDots d-sm:text-2xl d-lg:text-4xl'>{timeLeft.days} <span className='text-white font-Tourney d-sm:text-5xl d-lg:text-7xl'>Days</span> to go</p>}
+                        {timeLeft.days === 0 && timeLeft.hours > 0 && <p className='font-ZenDots d-lg:text-4xl d-sm:text-3xl'>{timeLeft.hours} <span className='text-white font-Tourney d-md:text-7xl d-sm:text-5xl'>Hours</span> to go</p>}
+                        {timeLeft.days === 0 && timeLeft.hours === 0 && timeLeft.minutes > 0 && <p className='font-ZenDots d-lg:text-4xl d-sm:text-3xl'>{timeLeft.minutes} <span className='text-white font-Tourney d-md:text-6xl d-sm:text-4xl'>Minutes</span> to go</p>}
+                        {timeLeft.days === 0 && timeLeft.hours === 0 && timeLeft.minutes === 0 && <p className='font-ZenDots d-lg:text-4xl d-sm:text-3xl'>{timeLeft.seconds} <span className='text-white font-Tourney d-md:text-6xl d-sm:text-4xl'>Seconds</span>to go</p>}
                     </p>
                     <br />
-                    <div className='flex justify-around m-sm:mt-7 m-lg:mt-14'>
+                    <div className='flex justify-around d-sm:mt-7 d-lg:mt-14'>
                         <button className='hover:bg-white/40 hover:rounded-full' onClick={ handlePreviousCity }>
                             <LeftArrow />
                         </button>

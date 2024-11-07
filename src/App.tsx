@@ -1,4 +1,4 @@
-import Main from "./desktop/Main";
+import Desktop from "./desktop/Desktop";
 import useResponsive from "./hooks/useResponsive"
 import Mobile from "./mobile/Mobile";
 
@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       { breakpoint === 0 && <Mobile />}
-      { breakpoint === 1 && <Main />}
+      { breakpoint === 1 && <Desktop />}
     </>
   )
 }
