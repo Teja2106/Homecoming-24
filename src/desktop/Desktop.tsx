@@ -1,7 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import VizagLogo from '../assets/img/VizagLogo.jpg';
-import BlrLogo from '../assets/img/BlrLogo.jpg';
-import HydLogo from '../assets/img/HydLogo.jpg';
+import Logo from '../assets/img/HC Logo.png';
 import carouselImages from '../carouselImages';
 
 interface TimeLeft {
@@ -14,7 +12,6 @@ interface TimeLeft {
 interface City {
     name: string;
     date: Date;
-    logo: string;
 }
 
 const LeftArrow = () => {
@@ -30,9 +27,9 @@ const RightArrow = () => {
 }
 
 const cities: City[] = [
-    { name: 'Hyderabad', date: new Date('2024-12-14T00:00:00'), logo: HydLogo },
-    { name: 'Bengaluru', date: new Date('2024-12-21T00:00:00'), logo: BlrLogo },
-    { name: 'Vizag', date: new Date('2024-12-28T00:00:00'), logo: VizagLogo }
+    { name: 'Hyderabad', date: new Date('2024-12-14T00:00:00') },
+    { name: 'Bengaluru', date: new Date('2024-12-21T00:00:00') },
+    { name: 'Vizag', date: new Date('2024-12-28T00:00:00') }
 ]
 
 export default function Desktop() {
@@ -121,7 +118,7 @@ export default function Desktop() {
     return (
         <div>
             <nav className="d-md:h-24 d-sm:h-20 d-lg:h-32 flex items-center">
-                <img src={ cities[currentCityIndex].logo } alt="Logo" className="d-md:w-36 d-sm:w-28 d-lg:w-44 ml-4 mt-4" loading='lazy' />
+                <img src={ Logo } alt="Logo" className="d-md:w-36 d-sm:w-28 d-lg:w-44 ml-4 mt-4" loading='lazy' />
             </nav>
 
             <div className="flex d-md:h-[599px] d-sm:h-[471px] d-lg:h-[791px] justify-around ">
