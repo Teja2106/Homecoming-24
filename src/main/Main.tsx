@@ -20,7 +20,7 @@ const cities: City[] = [
     { name: 'VIZAG', date: new Date('2024-12-28T00:00:00') },
 ];
 
-export default function Desktop() {
+export default function Main() {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [fade, setFade] = useState(true);
     const intervalTime = 3000;
@@ -77,12 +77,10 @@ export default function Desktop() {
 
     return (
         <div>
-            {/* Navbar */}
-            <nav className="sm:h-16 md:h-24 lg:h-32 flex items-center">
+            <nav className="sm:h-16 d-sm:h-16 d-md:h-24 d-lg:h-32 flex items-center">
                 <img src={Logo} alt="Logo" className="sm:w-24 md:w-40 lg:w-56 ml-4 sm:ml-2" loading="lazy" />
             </nav>
 
-            {/* Carousel */}
             <div className="flex justify-center">
                 <div className="w-full sm:m-2 md:m-4 lg:m-1">
                     <img
@@ -96,7 +94,6 @@ export default function Desktop() {
                 </div>
             </div>
 
-            {/* Countdown Cards */}
             <div className="flex flex-wrap justify-center gap-6 mt-8 sm:gap-4 sm:mt-6">
                 {cities.map((city, index) => {
                     const { days, hours, minutes, seconds } = timeLefts[index] || {};
@@ -105,7 +102,7 @@ export default function Desktop() {
                     const eventDaySuffix = getSuffix(eventDay);
 
                     return (
-                        <div key={city.name} style={{ backgroundColor: currentColor }} className="relative rounded-lg p-5 text-white shadow-lg flex flex-col items-center w-[90%] sm:w-full sm:mx-2 md:w-[30%]">
+                        <div key={city.name} style={{ backgroundColor: currentColor }} className="relative rounded-lg p-5 text-white shadow-lg flex flex-col items-center w-screen sm:w-full sm:mx-2 m-2">
                             <div className="absolute inset-0 flex items-center justify-center">
                                 <h1 className="text-[100px] sm:text-[60px] font-Tourney opacity-50 text-white" style={{ whiteSpace: 'nowrap', zIndex: 0 }}> {city.name}</h1>
                             </div>
@@ -116,10 +113,10 @@ export default function Desktop() {
                                     <sup>{eventDaySuffix}</sup> December 2024
                                 </p>
                                 <div className="text-black">
-                                    {days > 0 && (<p className="font-ZenDots text-[20px] sm:text-[16px]"> {days} <span className="font-ZenDots">Days</span></p>)}
-                                    {days === 0 && hours > 0 && (<p className="font-ZenDots text-[16px]">{hours} <span>Hours</span></p>)}
-                                    {days === 0 && hours === 0 && minutes > 0 && (<p className="font-Tourney text-[16px]">{minutes} <span>Minutes</span></p>)}
-                                    {days === 0 && hours === 0 && minutes === 0 && seconds > 0 && (<p className="font-Tourney text-[16px]">{seconds} <span>Seconds</span></p>)}
+                                    {days > 0 && (<p className="font-ZenDots text-[20px] sm:text-[16px]"> {days} <span className="font-ZenDots">Days to go!</span></p>)}
+                                    {days === 0 && hours > 0 && (<p className="font-ZenDots text-[16px]">{hours} <span>Hours to go!</span></p>)}
+                                    {days === 0 && hours === 0 && minutes > 0 && (<p className="font-Tourney text-[16px]">{minutes} <span>Minutes to go!</span></p>)}
+                                    {days === 0 && hours === 0 && minutes === 0 && seconds > 0 && (<p className="font-Tourney text-[16px]">{seconds} <span>Seconds to go!</span></p>)}
                                     {days === 0 && hours === 0 && minutes === 0 && seconds === 0 && (<p className="font-Tourney text-[16px]">Event is live!</p>
                                     )}
                                 </div>
