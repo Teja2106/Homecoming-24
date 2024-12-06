@@ -1,8 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import carouselImages from '../carouselImages';
-import VizagLogo from '../assets/img/VizagLogo.jpg';
-import HydLogo from '../assets/img/HydLogo.jpg';
-import BlrLogo from '../assets/img/BlrLogo.jpg';
+import Logo from '../assets/img/HC Logo.png';
 
 interface TimeLeft {
     days: number;
@@ -14,13 +12,12 @@ interface TimeLeft {
 interface City {
     name: string;
     date: Date;
-    logo: string;
 }
 
 const cities: City[] = [
-    { name: 'Hyderabad', date: new Date('2024-12-14T00:00:00'), logo: HydLogo },
-    { name: 'Bengaluru', date: new Date('2024-12-21T00:00:00'), logo: BlrLogo },
-    { name: 'Vizag', date: new Date('2024-12-28T00:00:00'), logo: VizagLogo }
+    { name: 'Hyderabad', date: new Date('2024-12-14T00:00:00') },
+    { name: 'Bengaluru', date: new Date('2024-12-21T00:00:00') },
+    { name: 'Vizag', date: new Date('2024-12-28T00:00:00') }
 ];
 
 export default function Mobile() {
@@ -83,12 +80,11 @@ export default function Mobile() {
     return (
         <div>
             <nav className="d-md:h-24 d-sm:h-20 d-lg:h-32 flex items-center sm:h-24">
-                <img src={ cities[currentCityIndex].logo } alt="Logo" className="d-md:w-36 d-sm:w-28 d-lg:w-44 ml-4 mt-4 sm:h-32 sm:mt-3 sm:ml-[-12px]" loading='lazy' />
+                <img src={ Logo } alt="Logo" className="d-md:w-36 d-sm:w-28 d-lg:w-44 ml-10 mt-4 sm:h-32 sm:mt-3 sm:ml-[-12px]" loading='lazy' />
             </nav>
             <div className="grid grid-cols-1 gap-4 p-2 lg:grid-cols-3 lg:gap-8">
 
-                {/* Topbox for Carousel */}
-                <div className="h-96 lg:h-screen rounded-2xl bg-gray-200 relative overflow-hidden lg:col-span-2" id="topbox">
+                <div className="d-md:h-screen d-lg:h-screen d-sm:h-screen rounded-2xl bg-gray-200 relative overflow-hidden lg:col-span-2" id="topbox">
                     <img
                         src={carouselImages[currentImageIndex]}
                         alt={`Carousel ${currentImageIndex + 1}`}
@@ -97,7 +93,6 @@ export default function Mobile() {
                     />
                 </div>
 
-                {/* Basebox for City and Countdown */}
                 <div className="h-96 lg:h-screen rounded-2xl bg-slate-950 p-4 flex flex-col justify-between items-start text-left" id="basebox">
 
                     <h1 className="text-5xl font-extrabold text-white">{cities[currentCityIndex].name}</h1>
